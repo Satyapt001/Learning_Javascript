@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      
+      margin:6em;
+      padding: 25px;
+      background-color: white;
+      color: black;
+      font-size: 25px;
+    }
+
+    .dark-mode {
+      background-color: black;
+      color: white;
+
+      .link {
+        list-style: none;
+        text-decoration: none;
+        border-radius: 8px;
+        background-color: black;
+        padding: 0.25em 1em;
+        border: 2px solid white;
+        color: white;
+      }
+      a{
+        margin:0 auto;
+      }
+
+
+      .link:hover {
+        background-color: white;
+        color: black;
+      }
+
+      .button_Click {
+        border-radius: 8px;
+        background-color: black;
+        padding: 0.25em 1em;
+        border: 2px solid white;
+        color: white;
+      }
+    }
+
+    .link {
+      font-size: 0.8em;
+      list-style: none;
+      text-decoration: none;
+      border-radius: 8px;
+      background-color: white;
+      padding: 0.25em 1em;
+      border: 2px solid black;
+      color: black;
+    }
+
+    .link:hover {
+      background-color: black;
+      color: white;
+      transition: .3s ease-in-out;
+    }
+
+    .button_Click {
+      border-radius: 8px;
+      background-color: white;
+      padding: 0.25em 1em;
+      border: 2px solid black;
+      color: black;
+    }
+
+    .button_Click:hover {
+      background-color: black;
+      color: white;
+      transition: .3s ease-in-out;
+    }
+    .one{
+        border-right: 2px solid  yellow;
+        border-left:2px solid yellow;
+      }
+      .two{
+        border-right: 2px solid  yellow;
+        border-left:2px solid yellow;
+      }
+    .one,.two{
+      border-radius: 80px;
+      max-height: 100vh;
+      padding: 1em 1em;
+      max-width: 40%;
+      
+    }
+    .one + .two {
+      margin-left:7em;
+    }
+    .container{
+      border-radius: 10px;
+      /* border: 2px solid green; */
+      display: flex;
+      justify-content: space-between;
+    }
+    @media (max-width:700px){
+      .container{
+        flex-direction: column;
+      }
+      .one + .two {
+      margin-left:0em;
+    }
+    .one{width: 100%;
+    max-width: 700px;}
+    .two{width: 100%;
+    max-width: 700px;}
+    }
+    
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="one">
+      <h2>Toggle Dark/Light Mode</h2>
+      <p>Click the button to toggle between dark and light mode for this page.</p>
+      <button class="button_Click" onclick="myFunction()">Toggle dark mode</button>
+    </div>
+    <div class="two">
+      <h1>Learning JavaScript</h1>
+      <a href="freecodecamp.html" class="link">codes</a>
+    </div>
+  </div>
+  <script>
+    function myFunction() {
+      var element = document.body;
+      element.classList.toggle("dark-mode");
+    }
+  </script>
+
+</body>
+
+</html>
