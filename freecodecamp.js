@@ -10,7 +10,7 @@ hello again this is a multi line comment*/
 1.undefined  => variable without anything
 2.null       =>means nothing
 3.boolean    =>true or false
-4.string     =>
+4.string     =>collection of characters
 5.symbol     =>immutable primitive value that is unique
 6.number     =>1,2,3,4,5......
 7.object     => it can store different key value pairs
@@ -64,8 +64,8 @@ var LookAttime;
 /* 1.  studyathome = 'good';  */
 //not the same,won't get assigned value properly ,=>it can be done as follows
 StudyAtHome = 10;
-properlearnig = 100;
-lookattime = false;
+prOpeRLearninG = 100;
+LookAttime = false;
 
 console.log(StudyAtHome);
 
@@ -1378,7 +1378,7 @@ function freezeObj() {
         PI: 3.14
     };
 
-    Object.freeze(MATH_CONSTANTS);//after calling the object as a parameter this method don't let the you further change the value of the declared constant
+    // Object.freeze(MATH_CONSTANTS);//after calling the object as a parameter this method don't let the you further change the value of the declared constant
     try {
         MATH_CONSTANTS.PI = 99; //first this will be executed if any error occurs than it will execute the next block of code
     } catch (ex) {
@@ -1454,11 +1454,12 @@ const sum = (() => {
 console.log("sum of the number are " + sum(1, 2, 3, 4));
 
 /**Use of spread Operator to Evaluate Arrays In-place**/
-const arr1 = ['JAN','FEB','MAR','APR','MAY'];
+const arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
 let arr2;
-( () => {
-    arr2 = arr1;//the arr2 variable is intialized the vlaue with arr1 that means it can access the content of arr1
-    arr1[0] ='potato'//the value of index number 0 is changed to 'potato'
+(() => {
+    arr2 = [...arr1];//what if we want aar2 be copy of arr1 we use the spread operator,so in this line we are making only the content of aar1 equals to content of arr2 
+    //the arr2 variable is intialized the vlaue with arr1 that means it can access the content of arr1
+    arr1[0] = 'potato'//the value of index number 0 is changed to 'potato'
 })();
 
 /*
@@ -1469,28 +1470,263 @@ let arr2;
     };
 })();
 */
-
 console.log(arr2);
+console.log(arr1);
+
+/**Use Destructing Assignment to Assign Variables from Objects**/
+var voxel = { x: 3.6, y: 7.4, z: 6.54 };
+//assigning the values to respective variable
+var x = voxel.x;
+var y = voxel.y;
+var z = voxel.z;
+
+//mapping the values with respects to other variable
+const { x: a1, y: b1, z: c1 } = voxel;//destructing assignment
+/*
+    a = 3.6 b = 7.4  c = 6.54 
+*/
+
+//the object AVG_TEMPRATURES contians the temprature of today and tomorrow 
+const AVG_TEMPRATURES = {
+    today: 77.5,
+    tomorrow: 79
+};
+
+//here the object is passed to getTemOfTmrw as an argument
+function getTempOfTmrw(avgTempratures) {
+    "use strict";
+
+    //change code below this line
+    /*below this line include the Destructing Assignment which assigns the the today feild value to the avgTempratures  */
+    const { tomorrow: tempOfTomorrow } = avgTempratures;
+    return tempOfTomorrow;
+}
+
+console.log(getTempOfTmrw(AVG_TEMPRATURES));
+
+/** Destructuring Assignment with Nested Objects**/
+//LOCAL_FORECAST is a nested object
+const LOCAL_FORECAST = {
+    today: { min: 72, max: 83 },
+    tomorrow: { min: 73.3, max: 84.6 }
+};
+//we can use destructuring Assignment to get values from nested objects
+//the function getMaxOfTmrw is passed with the parameter forecast which gets the value from the object
+function getMaxOfTmrw(forecast) {
+    "use struct";
+    const { tomorrow: { max: maxOfTomorrow } } = forecast;
+    return maxOfTomorrow;
+}
+
+console.log(getMaxOfTmrw(LOCAL_FORECAST));
+
+/**use Destructuring Assignment to Assign Variables from Arrays**/
+//using the method below we can access the corresponding values in the array
+const [z1, x1, , y1] = [1, 2, 3, 4, 5, 6];
+console.log(z1, x1, y1);
+
+let a2 = 8, b2 = 6;
+
+(() => {
+    "use strict";
+    [a2, b2] = [b2, a2]//this destructuring Assigment is swapping the values of both a2 and b2
+})();
+
+console.log(a2);
+console.log(b2);
+
+/**Use Destructuring Assignment with the Rest Operator**/
+const source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+function removeFirstTwo(list) {
+    //the method demonstrated below removes two elements from the starting of the array
+    const [, , ...arr] = list;//The destructuring Assignment is carried out to remove the first two elements of the source list 
+    return arr;
+}
+const arr = removeFirstTwo(source);
+console.log(arr);
+console.log(source);
+
+/**Use Destructuring Assignment to pass an Object as a Function's Parameters**/
+
+//declaring an object
+const stats = {
+    max: 56.78,
+    standard_deviation: 4.34,
+    median: 34.54,
+    mode: 23.87,
+    min: -0.75,
+    average: 35.85
+};//this is a object that contains the value of stats
+const half = (() => {
+    return function half({ max, min }) {//in this function the min & max are passed as funciton parameter
+        return (max + min) / 2.0;
+    };
+})();
+
+console.log(stats);//returns the full content of stats
+console.log(half(stats));//returns the half content of the stats object
+
+/**create Strings using Template Literals**/
+const person = {
+    name: "satyapriya Tripathy",
+    age: 22
+};
+//template literal with multi-line and string interpolation
+const greeting = `Hello, my name is ${person.name} ! I am ${person.age} years old.`;
+
+console.log(greeting);
 
 
+//coding challenge 
+const result_display = {
+    success: ["max-length", "no-amd", "prefer-arrow-functions"],
+    failure: ["no-var", "var-on-top", "linebreak"],
+    skipped: ["id-blacklist", "no-dup-keys"]
+}; //this object contains properties of attributs in array format
+
+function makeList(arr) {
+    const resultDisplayArray = [];//empty arrray to store value after iteration
+    for (let i = 0; i < arr.length; i++) {//iterater the object 0ne by one and store the value inside the empty array
+        resultDisplayArray.push(`<li class = "text-warning">${arr[i]}</li>`);
+    }//push function is used to store values inside the empty array
+    return resultDisplayArray;
+}
+/** 
+ * makeList(result.failure) should return:
+ * [`<li class = "text-warning">no-var</li>`
+ *  `<li class = "text-warning">var-on-top</li>`
+ *  `<li class = "text-warning">linebreak</li>` ]
+*/
+
+const resultDisplayArray = makeList(result_display.failure);//function calling
+
+console.log(resultDisplayArray);//expected output on line 1596
+
+/**Write Concise Object literal Declarations Using Simple Fields**/
+
+//the code mentioned below pass 3 argument into an arrow function with corresponding object properties 
+const createPerson = (name3, age, gender) => ({ name3, age, gender });
+//the below code is the extended version of the code above this line  
+/*
+    {
+    return {
+        name3: name3,
+        age: age,
+        gender: gender
+    };
+};
+*/
+console.log(createPerson("rohit paswan", 22, "male"));
+
+/**USE OF THIS KEYWORD**/
+var person5 = {
+    firstName: 'satyapriya ',
+    lastName: 'tripathy',
+    fullname() {
+        return "my name is " + this.firstName + this.lastName
+    }
+};
+console.log(person5.fullname());
+
+/**Write concise Declarative Functions**/
+//an object can contain a function
+const bicycle = {
+    gear: 2,
+    setGear(newGear)// setGear: function(newGear) can be written as setGear(newGear) the property of object is provided with a function as a value 
+    {
+        "use strict";
+        this.gear = newGear;
+    }
+};
+bicycle.setGear(3);
+console.log(bicycle.gear);
+
+/**Use class Syntax to Define a Constructor Function**/
+class SpaceShuttle {
+    constructor(targetPlanet) {
+        this.targetPlanet = targetPlanet;
+    }
+}
+//the above code can be otherwise written as mentioned below,the output remains unchanged
+/**
+var SpaceShuttle = function ( targetplanet){
+    this.targetplanet = targetplanet;
+}
+  **/
+var hero = new SpaceShuttle('neptune');
+console.log(hero.targetPlanet);
+
+//another example
+function makeclass() {
+    class vegetables {
+        constructor(name8) {
+            this.name8 = name8;
+        }
+    }
+    return vegetables;
+}
+
+const vegetables = makeclass();//calling the function
+const carrot = new vegetables('carrot');//creating an instance of the class
+console.log(carrot.name8);
+
+/**Use getters and setters to control Access to an Object**/
+class Book {
+    /**
+    so here with in the class there are three modules
+    _1st one is a constructor
+     *it takes author as parameter
+    _2nd one is the getter
+     *it return the author variable
+    _3rd one is the setter
+     *it update the author variable
+     */
+    constructor(author) {
+        this._author = author;
+    }
+    //getter
+    get writer_01() {
+        return this._author;
+    }
+    //setter
+    set writer_01(updatedAuthor) {
+        this._author = updatedAuthor;
+    }
+}
 
 
+function makeClass() {
+    class thermostat {
+        /**
+         * This class contains three main components
+         * 1st
+           It is a constructor which takes temp as an argument
+           and convert the value to celcius 
+         * 2nd
+            it returns the variable temp
+         * 3rd
+            it update the vlaue of temp
+        */
+        constructor(temp12) {
+            //generally signinfies that it is a private variable        
+            this._temp12 = 5 / 9 * (this.temp12 - 32);
+        }
+        //getter
+        get temprature() {
+            return this._temp12;
+        }
+        //setter
+        set temprature(updatedTemp) {
+            this._temp12 = updatedTemp;
+        }
+    }
+    return Thermostat;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const Thermostat = makeclass();//function calling
+const thermos = new Thermostat(76);//object creation
+let temp12 = thermos.temprature;//storing the value inside temp
+thermos.temprature = 26;//updated value
+temp12 = thermos.temprature;//restoring the value
+console.log(temp12);//output
 
