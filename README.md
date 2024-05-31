@@ -11,4 +11,4 @@
 
 ![Screenshot (63)](https://github.com/Satyapt001/Learning_Javascript/assets/126075100/4678583f-cfca-4f9a-a452-993c2ce3fd88)
 
-<h5>contribute to this page if you want to make changes that makes a difference and help people get here to access the codes</h5>
+<h5>contribute to this page if you want people get here to access the codes</h5>
