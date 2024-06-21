@@ -2,6 +2,7 @@
 <h4>[<a href="https://youtu.be/PkZNo7MFNFg">click Here </a>] link to the referred youtube video </h4>
 <p>1.switch between light and dark mode</p>
 <p>2.codes for learning javascript</p>
+<p>click on [codes]↗️ to go to next page⏭️</p>
 
 ![Screenshot (62)](https://github.com/Satyapt001/Learning_Javascript/assets/126075100/09be20a8-6b48-475f-990e-dbc4f3745c5a)
 
