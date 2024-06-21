@@ -1,6 +1,6 @@
 <h1>Javascript for beginners</h1>
 <h2>1st page contents</h2>
-<h4>[<a href="https://youtu.be/PkZNo7MFNFg">click🔗</a>] link to the referred youtube video </h4>
+<h4><a href="https://youtu.be/PkZNo7MFNFg">click🔗</a> link to the referred youtube video </h4>
 <p>1.switch between light and dark mode</p>
 <p>2.codes for learning javascript</p>
 <p>click on [codes]↗️ to go to next page⏭️</p>
