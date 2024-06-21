@@ -12,4 +12,6 @@
 
 ![Screenshot (63)](https://github.com/Satyapt001/Learning_Javascript/assets/126075100/4678583f-cfca-4f9a-a452-993c2ce3fd88)
 
+<h6>❗This page is not responsive </h6>
+
 <h5>contribute to this page if you want people get here to access the codes</h5>
