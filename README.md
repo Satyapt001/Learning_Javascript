@@ -15,4 +15,4 @@
 
 <h6>❗This page is not responsive </h6>
 
-<h5>contribute to this page if you want people get here to access the codes</h5>
+<h5>contribute to this page to enable people get here to access the codes</h5>
